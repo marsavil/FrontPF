@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+*:root {
+  --eerie-black: hsl(0, 0%, 13%);
+  --onyx: hsl(0, 0%, 27%);
+  --davys-gray: hsl(0, 0%, 33%);
+  --sonic-silver: hsl(0, 0%, 47%);
+  --spanish-gray: hsl(0, 0%, 60%);
+  --white: hsl(0, 100%, 100%);
+  --cultured: hsl(0, 0%, 93%);
+}
+
+body{
+  font-family: 'Inter', sans-serif !important;
+}
+
+.body {
+  background: rgb(255 255 255);
+}
