@@ -18,8 +18,10 @@ export default function AllCards() {
   const [productPerPage] = useState(12);
   const indexOfLastProduct = currentPage * productPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productPerPage;
-  const currentProduct = allProducts.slice(indexOfFirstProduct, indexOfLastProduct);
- 
+  const currentProduct = allProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -36,32 +38,32 @@ export default function AllCards() {
       <Pages
         productPerPage={productPerPage}
         allProduct={allProducts.length}
-        paginate={paginate} 
+        paginate={paginate}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
-    
-      <div className="container pb-5 mb-sm-1 text-center">
-      <div className="row"> 
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        {allProducts.length > 0 ? (
-          currentProduct.map((e) => (
-            <Link key={e.id} to={`/product/${e.id}`}>
-              <div class="col-6 col-md-4">
-              <Card
-                id={e.id}
-                model={e.model}
-                marca={e.marca}
-                price={e.price}
-                image={e.image}
-              />
-              </div>
-            </Link>
-          ))
-        ) : (
-          <h2>No hay nada</h2>
-        )}
-        </div>
+
+      <div>
+        <div>
+          <div className="d-flex flex-row flex-wrap justify-content-center">
+            {allProducts.length > 0 ? (
+              currentProduct.map((e) => (
+                <Link key={e.id} to={`/product/${e.id}`}>
+                  <div>
+                    <Card
+                      id={e.id}
+                      model={e.model}
+                      marca={e.marca}
+                      price={e.price}
+                      image={e.image}
+                    />
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <h2>No hay nada</h2>
+            )}
+          </div>
         </div>
       </div>
     </>

@@ -1,5 +1,5 @@
 import React from "react";
-import css from "../Pages/pages.css"
+import "./pages.css"
 
 export default function Pages ({productPerPage, allProduct, paginate, setCurrentPage, currentPage}){
     const pageNumber = [];

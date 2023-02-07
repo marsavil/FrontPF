@@ -12,8 +12,8 @@ export const Home = ({setCurrentPage}) => {
     <div>
       <Navbar />
       <AllCards />
-      <Footer/>
       <AddNewProduct/>
+      <Footer/>
     </div>
   );
 };

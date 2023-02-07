@@ -2,8 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getProductQuery } from "../../Redux/actions.js";
-import css from "../NavBar/navBar.css"
-
+import "./navBar.css"
 
 
 export default function Navbar(){
