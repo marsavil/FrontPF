@@ -21,15 +21,12 @@ function Login(){
         }
     return(
         <div className="center">
-            <h1>Login</h1>
-            <div className="btn">
                 <GoogleLogin
                 clientId={clientID}
                 onSuccess={onSuccess}
                 onFailure={onFailure}
                 cookiePolicy={"single_host_policy"}
                 />
-            </div>
             <div className={user? "profile":"hidden"}>
                 <img src={user.imageUrl} alt="" />
                 <h3>{user.name}</h3>

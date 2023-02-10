@@ -1,4 +1,5 @@
 import React from "react";
+import Login from "../../Login/Login";
 import css from "../Footer/footer.css";
 
 export const Footer = () => {
@@ -8,15 +9,13 @@ export const Footer = () => {
         <p>Online Store Copyright</p>
         <form className="form-inline">
           Get deals:
-          <input
+          {/* <input
             type="email"
             className="form-control"
             size="50"
             placeholder="Email Address"
-          />
-          <button type="button" className="btn btn-dark rounded m-4">
-            Sign Up
-          </button>
+          /> */}
+            <Login/>
         </form>
       </div>
     </div>

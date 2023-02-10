@@ -151,7 +151,7 @@ export default function Form() {
                   />
                   {(input.price > 1200000 || input.price < 5000) && (
                     <div className="error">
-                      The price can't be more than $1.200.000 nor less than
+                      The price can't be greater than $1.200.000 nor smaller than
                       $5000
                     </div>
                   )}

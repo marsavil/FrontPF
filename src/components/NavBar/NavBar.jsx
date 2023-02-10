@@ -59,9 +59,7 @@ export default function Navbar(){
             <span className="shop-bag">
               
             </span>
-            <div className="text-icon">
-              LOGIN
-            </div>
+         
 
          
 

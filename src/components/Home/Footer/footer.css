@@ -1,4 +1,4 @@
-footer {
+/* footer {
     background-color: #f2f2f2;
     padding: 25px;
     width: 100%;
@@ -6,4 +6,8 @@ footer {
     height: auto;
     position: fixed;
     bottom: 0;
+  } */
+
+  .form-control {
+    margin: 0.4rem 5rem 0 -10rem ;
   }
