@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "./allCards.css";
 import Pages from "../../Home/Pages/Pages.jsx";
 import Filters from "../../Filters/Filters";
+import axios from "axios";
 
 export default function AllCards() {
   const dispatch = useDispatch();
@@ -31,6 +32,15 @@ export default function AllCards() {
     dispatch(getAllProducts());
   }, [dispatch]);
 
+  const handlePayment = (e) => {
+    axios
+      .post("http://localhost:3001/payment", { product: { ...e }, quantity: 1 })
+      .then((res) => {
+        console.log(res);
+        window.location.href = res.data.response.body.init_point;
+      });
+  };
+
   return (
     <>
       <Filters />
@@ -48,8 +58,8 @@ export default function AllCards() {
           <div className="d-flex flex-row flex-wrap justify-content-center">
             {allProducts.length > 0 ? (
               currentProduct.map((e) => (
-                <Link key={e.id} to={`/product/${e.id}`}>
-                  <div>
+                <div className="d-flex flex-column align-items-center">
+                  <Link key={e.id} to={`/product/${e.id}`}>
                     <Card
                       id={e.id}
                       model={e.model}
@@ -57,8 +67,16 @@ export default function AllCards() {
                       price={e.price}
                       image={e.image}
                     />
-                  </div>
-                </Link>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      handlePayment(e);
+                    }}
+                  >
+                    {" "}
+                    Buy{" "}
+                  </button>
+                </div>
               ))
             ) : (
               <h2>No hay nada</h2>

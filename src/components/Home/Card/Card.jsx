@@ -11,12 +11,6 @@ const Card = ({ marca, image, price, model }) => {
         <span className="d-block mb-3 font-size-xs text-muted">
           Starting from <span className="font-weight-semibold">{price}</span>
         </span>
-        <a
-          className="btn btn-pill btn-outline-primary btn-sm"
-          href="shop-style1-ls.html"
-        >
-          Shop clothing
-        </a>
       </div>
     </div>
   );

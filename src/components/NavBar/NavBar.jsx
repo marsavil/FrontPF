@@ -71,7 +71,7 @@ export default function Navbar(){
             <span className="shop-bag" >
               
                 <div className="text-icon">
-                  CARRY
+                  CART
                 </div>
             </span>
           </div>

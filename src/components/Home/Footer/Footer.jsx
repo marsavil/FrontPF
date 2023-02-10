@@ -14,7 +14,7 @@ export const Footer = () => {
             size="50"
             placeholder="Email Address"
           />
-          <button id="sign" type="button" className="btn btn-dark">
+          <button type="button" className="btn btn-dark rounded m-4">
             Sign Up
           </button>
         </form>

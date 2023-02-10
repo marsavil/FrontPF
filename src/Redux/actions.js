@@ -17,7 +17,7 @@ export const ORDER_MARCA = "ORDER_MARCA";
 export const getAllProducts = () => {
   return async (dispatch) => {
     try {
-      let response = await axios.get(`/product`);
+      let response = await axios.get(`http://localhost:3001/product`);
       dispatch({
         type: GET_ALL_PRODUCTS,
         payload: response.data,
@@ -35,7 +35,7 @@ export const getAllProducts = () => {
 export const getUsers = () => {
   return async (dispatch) => {
     try {
-      let response = await axios.get(`/user`);
+      let response = await axios.get(`http://localhost:3001/user`);
       let userArray = response.data.map((objeto) => objeto.name);
       dispatch({
         type: GET_USERS,
@@ -53,7 +53,7 @@ export const getUsers = () => {
 export function getProductId(id) {
   return async (dispatch) => {
     try {
-      let json = await axios.get(`/product/${id}`);
+      let json = await axios.get(`http://localhost:3001/product/${id}`);
       dispatch({
         type: GET_PRODUCT_ID,
         payload: json.data,
@@ -70,7 +70,7 @@ export function getProductId(id) {
 export function getProductQuery(model) {
   return async (dispatch) => {
     try {
-      let json = await axios.get(`/product?name=${model}`);
+      let json = await axios.get(`http://localhost:3001/product?name=${model}`);
       dispatch({
         type: GET_PRODUCT_BY_QUERY,
         payload: json.data,
@@ -87,7 +87,7 @@ export function getProductQuery(model) {
 export const postProduct = (payload) => {
   return async () => {
     try {
-      let json = await axios.post(`/product/add`, payload);
+      let json = await axios.post(`http://localhost:3001/product/add`, payload);
       return json;
     } catch (error) {
       console.log(error);

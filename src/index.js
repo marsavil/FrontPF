@@ -5,12 +5,7 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import store from "./Redux/store";
-import {BrowserRouter} from 'react-router-dom';
-import axios from 'axios';
-
-//axios.defaults.baseURL='http://localhost:3001'
-
-axios.defaults.baseURL='https://backpf-production-c9e5.up.railway.app/'
+import {BrowserRouter} from 'react-router-dom'
 
 ReactDOM.render(
   <React.StrictMode>
