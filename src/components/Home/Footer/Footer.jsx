@@ -15,7 +15,7 @@ export const Footer = () => {
             size="50"
             placeholder="Email Address"
           /> */}
-            {/* <Login/> */}
+            <Login/>
         </form>
       </div>
     </div>
