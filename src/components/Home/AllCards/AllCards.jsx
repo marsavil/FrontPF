@@ -34,7 +34,7 @@ export default function AllCards() {
 
   const handlePayment = (e) => {
     axios
-      .post("http://localhost:3001/payment", { product: { ...e }, quantity: 1 })
+      .post("/payment", { product: { ...e }, quantity: 1 })
       .then((res) => {
         console.log(res);
         window.location.href = res.data.response.body.init_point;
