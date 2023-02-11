@@ -1,3 +1,5 @@
+import _toConsumableArray from"/app/node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/toConsumableArray";
+import _objectSpread from"/app/node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/objectSpread";
 import {
   ERROR,
   GET_ALL_PRODUCTS,
