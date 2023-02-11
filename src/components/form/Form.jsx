@@ -1,3 +1,4 @@
+import React from "react";
 import {appendErrors, useForm} from "react-hook-form";
 import { priceValidator } from "../validators/validators";
 import { Link } from "react-router-dom";
