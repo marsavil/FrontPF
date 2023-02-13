@@ -1,14 +1,18 @@
 import React from "react"; 
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import { getProductQuery } from "../../Redux/actions.js";
+import Cart from "../Cart/Cart.jsx";
 import "./navBar.css"
 
 
-export default function Navbar(){
+export default function Navbar({}){
 
     const dispatch = useDispatch();
     const [model,setModel] = useState("");
+
+    
+    const [active, setActive] = useState(false);
 
     function handleInputModel(e){
         e.preventDefault();
@@ -18,8 +22,9 @@ export default function Navbar(){
     function handleSubmit(e){
         e.preventDefault();
         dispatch(getProductQuery(model));  
-        setModel("") // para dejarlo vacio despues de la busqueda 
+        setModel("") 
     }
+    
     return(
       
       <section className="navbar navbar-expand-lg" id="navbar1">
@@ -28,13 +33,7 @@ export default function Navbar(){
           <a href="/">LOGO</a>
         </div>
         
-        <button className="navbar-toggler d-lg-none" id="main">
-          <span className="navbar-toggler-icon">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <ion-icon name="menu-outline"></ion-icon>
-            </a>
-          </span>
-        </button>
+        
 
         <form className="d-lg-flex mb-2 mb-lg-0 mx-auto w-100" id="mobile">
           <div className="busca">
@@ -52,28 +51,39 @@ export default function Navbar(){
           </div>
         </form>
 
-      <div className="col-md-3">
-        <div className="d-flex d-md-flex flex-row align-items-center">
-          
-          <div className="col-md-3" id="iconsperson" onClick="redirectBtnlogin()">
-            <span className="shop-bag">
-              
-            </span>
-         
+      <div className="col-md-2">
+   
+			      <div className='container-icon'>
+                      <div
+                        className='container-cart-icon'
+                        onClick={() => setActive(!active)}
+                        >
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          strokeWidth='1.5'
+                          stroke='currentColor'
+                          className='icon-cart'
+                        >
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          d='M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z'
+                        />
+                        </svg>
+                      
+                      </div>
 
-         
+                      <div
+                      className={`container-cart-products ${
+                        active ? '' : 'hidden-cart'
+                      }`}
+                      >
+                      <Cart/>
+				              </div>
+            </div>
 
-          </div>
-
-          <div className="col-md-3" id="iconscart" onClick="redirectIconCheckout()">
-            <span className="shop-bag" >
-              
-                <div className="text-icon">
-                  CART
-                </div>
-            </span>
-          </div>
-        </div>
       </div>
     </section>
     )
