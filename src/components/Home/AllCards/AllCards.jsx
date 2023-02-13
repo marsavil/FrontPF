@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Card from "../Card/Card";
-import { getAllProducts } from "../../../Redux/actions";
-import { Link } from "react-router-dom";
+import { addToCarts, getAllProducts } from "../../../Redux/actions";
 import "./allCards.css";
 import Pages from "../../Home/Pages/Pages.jsx";
 import Filters from "../../Filters/Filters";
@@ -40,6 +39,10 @@ export default function AllCards() {
         window.location.href = res.data.response.body.init_point;
       });
   };
+  const handleAddToCart = (id) => {
+    dispatch(addToCarts(id));
+   
+  };
 
   return (
     <>
@@ -59,15 +62,15 @@ export default function AllCards() {
             {allProducts.length > 0 ? (
               currentProduct.map((e) => (
                 <div className="d-flex flex-column align-items-center">
-                  <Link key={e.id} to={`/product/${e.id}`}>
-                    <Card
-                      id={e.id}
-                      model={e.model}
-                      marca={e.marca}
-                      price={e.price}
+                 
+                  <Card key={e.id} 
+                      id= {e.id}
+                      handleAddToCart={handleAddToCart} 
                       image={e.image}
+                      price={e.price} 
+                      model ={e.model}
                     />
-                  </Link>
+                
                   <button
                     onClick={() => {
                       handlePayment(e);
