@@ -8,25 +8,15 @@ import {
   POST_PRODUCTS,
   ORDER_BY_NAME,
   ORDER_MARCA,
-  ORDER_PRICE,
-
-  ADD_TO_CART,
-  REMOVE_ONE_FROM_CART,
-  REMOVE_ALL_FROM_CART,
-  CLEAR_CART,
-
-  REGISTER_USER
-
+  ORDER_PRICE
 } from "./actions";
 
 const initialState = {
   product: [],
   users: [],
-  user: {},
   detail: [],
   error: [],
   filteredProducts: [],
-  cart: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -52,11 +42,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         product: action.payload,
-      };
-    case REGISTER_USER:
-      return {
-        ...state,
-        user: action.payload 
       };
 
     case GET_USERS:
@@ -151,60 +136,6 @@ const rootReducer = (state = initialState, action) => {
           filteredProducts: filteredUser,
         };
       }
-
-        ////CART////
-          case ADD_TO_CART:
-            let productsCart = [...state.product]
-          
-           
-            let newItem = productsCart.find((p) => p.id === action.payload);
-           
-          
-            
-            let itemCard = state.cart.find((item)=> item.id === newItem.id);
-      
-          
-            return itemCard ? {
-              ...state,
-              cart: state.cart.map((item)=> 
-              item.id === newItem.id ? 
-              {...item, quantity: item.quantity + 1 } 
-              : item)   
-            } : 
-            {
-              ...state,
-              cart: [...state.cart, {...newItem, quantity: 1}]
-            }
-      
-            case REMOVE_ONE_FROM_CART:
-              let itemDelete = state.cart.find((item)=> item.id === action.payload);
-      
-              return itemDelete.quantity > 1 ? {
-                ...state,
-                cart: state.cart.map((item)=>
-                  item.id === action.payload ?
-                  {...item, quantity: item.quantity - 1}
-                  : item
-                ),
-              }
-              : {
-                ...state,
-                cart: state.cart.filter((item)=> item.id !== action.payload)
-              }
-      
-            case REMOVE_ALL_FROM_CART:
-              return{
-                ...state,
-                cart: state.cart.filter((item)=> item.id !== action.payload)
-              }
-           
-              
-            case CLEAR_CART:
-            return {
-              ...state,
-              cart: []
-            };
-
     default:
       return { ...state };
   }

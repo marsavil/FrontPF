@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Card from "../Card/Card";
-import { addToCarts, getAllProducts } from "../../../Redux/actions";
+import { getAllProducts } from "../../../Redux/actions";
+import { Link } from "react-router-dom";
 import "./allCards.css";
 import Pages from "../../Home/Pages/Pages.jsx";
 import Filters from "../../Filters/Filters";
@@ -33,15 +34,11 @@ export default function AllCards() {
 
   const handlePayment = (e) => {
     axios
-      .post("http://localhost:3001/payment", { product: { ...e }, quantity: 1 })
+      .post("/payment", { product: { ...e }, quantity: 1 })
       .then((res) => {
         console.log(res);
         window.location.href = res.data.response.body.init_point;
       });
-  };
-  const handleAddToCart = (id) => {
-    dispatch(addToCarts(id));
-   
   };
 
   return (
@@ -62,15 +59,15 @@ export default function AllCards() {
             {allProducts.length > 0 ? (
               currentProduct.map((e) => (
                 <div className="d-flex flex-column align-items-center">
-                 
-                  <Card key={e.id} 
-                      id= {e.id}
-                      handleAddToCart={handleAddToCart} 
+                  <Link key={e.id} to={`/product/${e.id}`}>
+                    <Card
+                      id={e.id}
+                      model={e.model}
+                      marca={e.marca}
+                      price={e.price}
                       image={e.image}
-                      price={e.price} 
-                      model ={e.model}
                     />
-                
+                  </Link>
                   <button
                     onClick={() => {
                       handlePayment(e);
