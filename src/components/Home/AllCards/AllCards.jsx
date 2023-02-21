@@ -31,17 +31,8 @@ export default function AllCards() {
     dispatch(getAllProducts());
   }, [dispatch]);
 
-  const handlePayment = (e) => {
-    axios
-      .post("/payment", { product: { ...e }, quantity: 1 })
-      .then((res) => {
-        console.log(res);
-        window.location.href = res.data.response.body.init_point;
-      });
-  };
   const handleAddToCart = (id) => {
     dispatch(addToCarts(id));
-   
   };
 
   return (
@@ -61,25 +52,14 @@ export default function AllCards() {
           <div className="d-flex flex-row flex-wrap justify-content-center">
             {allProducts.length > 0 ? (
               currentProduct.map((e) => (
-                <div className="d-flex flex-column align-items-center">
-                 
-                  <Card key={e.id} 
-                      id= {e.id}
-                      handleAddToCart={handleAddToCart} 
-                      image={e.image}
-                      price={e.price} 
-                      model ={e.model}
-                    />
-                
-                  <button
-                    onClick={() => {
-                      handlePayment(e);
-                    }}
-                  >
-                    {" "}
-                    Buy{" "}
-                  </button>
-                </div>
+                <Card
+                  key={e.id}
+                  id={e.id}
+                  handleAddToCart={handleAddToCart}
+                  image={e.image}
+                  price={e.price}
+                  model={e.model}
+                />
               ))
             ) : (
               <h2>No hay nada</h2>

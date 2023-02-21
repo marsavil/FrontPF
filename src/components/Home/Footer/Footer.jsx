@@ -1,5 +1,4 @@
 import React from "react";
-import Login from "../../Login/Login";
 import css from "../Footer/footer.css";
 
 export const Footer = () => {
@@ -15,7 +14,6 @@ export const Footer = () => {
             size="50"
             placeholder="Email Address"
           /> */}
-            <Login/>
         </form>
       </div>
     </div>

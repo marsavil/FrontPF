@@ -24,8 +24,6 @@ div .container {
     margin-right: 0;
   }
 
-
-
 @media (pointer: coarse) and (hover: none) {
     div {
       background-color:  black no-repeat center center scroll;
@@ -38,8 +36,6 @@ div .container {
 .container {
     color: whitesmoke;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
-    
 }
 
 

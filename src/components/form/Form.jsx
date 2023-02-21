@@ -10,7 +10,12 @@ export default function Form() {
   const dispatch = useDispatch();
 
   const history = useHistory();
-
+  const user = useSelector((state) => state.userLogged)
+  //console.log( user)
+  if(user.status === "UNVERIFIED"){
+    alert("You have to verify your email before adding a product")
+    history.push("/home")
+  }
   const [input, setInput] = useState({
     marca: "",
     model: "",
@@ -21,6 +26,7 @@ export default function Form() {
     image: "",
     os: "",
     stock: "",
+    postedBy: user.id
   });
   //const [uploadedImage, setuploadedImage] = useState("");
 
@@ -37,13 +43,6 @@ export default function Form() {
     });
   }
 
-  // function handleDeleteType(e){
-  //     setInput({
-  //         ...input,
-  //         types: input.types.filter((t) => t !== e),
-  // });
-
-  // }
 
   const uploadImage = (e) => {
 
@@ -64,7 +63,7 @@ export default function Form() {
         })
       });
   };
-
+  console.log(input)
   function handleSubmit(e) {
     e.preventDefault();
     if (
@@ -76,7 +75,8 @@ export default function Form() {
       input.ram.length >= 1 &&
       input.camera.length >= 1 &&
       input.stock.length >= 1 &&
-      input.os.length > 0
+      input.os.length > 0 &&
+      input.postedBy > 0
     ) {
       dispatch(postProduct(input));
       alert("Success");

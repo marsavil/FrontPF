@@ -2,14 +2,8 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -23,10 +17,49 @@ code {
   --cultured: hsl(0, 0%, 93%);
 }
 
-body{
-  font-family: 'Inter', sans-serif !important;
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Inter", sans-serif !important;
+  background-color: #ebebeb !important;
 }
 
-.body {
-  background: rgb(255 255 255);
+a {
+  text-decoration: none !important;
+}
+
+/* media query que maneja el modo oscuro */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: rgba(41, 41, 41, 1) !important;
+  }
+
+  .card, .Detail {
+    background: rgba(18, 18, 18, 1) !important;
+  }
+
+  .texts {
+    color: white !important;
+  }
+
+  .card-text {
+    color: white !important;
+  }
+
+  .price {
+    color: #00a650;
+  }
+
+  .user {
+    background-color: rgba(18, 18, 18, 1) !important;
+  }
+
+  .form-textarea {
+    background-color: white !important;
+  }
+
+  .button-container {
+    color: white !important;
+  }
 }

@@ -1,0 +1,11 @@
+.container{
+  width: auto;
+  height:auto;
+  border: 1px solid white;
+  display:flex;
+  flex-direction: row;
+  color:whitesmoke;
+  font-size: 20px;
+  justify-items:flex-end;
+}
+

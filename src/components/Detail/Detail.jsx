@@ -2,40 +2,48 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCarts, getProductId } from "../../Redux/actions";
 import "./detail.css";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import accounting from 'accounting-js';
-import Cart from "../Cart/Cart";
+import NavBar from "../NavBar/NavBar"
+import Comment from "../comment/Comment.jsx"
+
 
 
 
 export const DetailProduct = () => {
+  
   const dispatch = useDispatch();
   const { id } = useParams();
   const product = useSelector((state) => state.detail);
+  
   const [cart, setCart] = useState([]);
   
   useEffect(() => {
+    // dispatch(getComments(product.id))
     dispatch(getProductId(id));
   }, [dispatch, id]);
+ console.log("este id viene de la variable product en linea 17", product.id)
+  // const allComments = useSelector((state) => state.comments)
 
-  if (!product) {
-    return <div>"LOADING"</div>;
-  }
+  
+  // console.log("soy allcomments", allComments)
 
   const myProduct = product;
   const handleAddToCart = (id) => {
     setCart([...cart, id]);
     dispatch(addToCarts(id));
   };
-
-  return (
+  if (!product) {
+    return <div>"LOADING"</div>;
+  }else{
+    return (
     <div key={myProduct.id} className="detailContainer">
+      <NavBar/>
       <Link to="/home">
-        <button className="backButton">Back</button>
+        <button className="mt-3 back">Back</button>
       </Link>
       <div className="Detail">
-        <Cart/>
         <div className="imageContainer">
           <img src={myProduct.image} alt="product" className="productImage" />
         </div>
@@ -66,11 +74,15 @@ export const DetailProduct = () => {
             Ram: <br /> {myProduct.ram}
           </h3>
           <h3 className="texts"> </h3>
-          <button onClick={()=>handleAddToCart(myProduct.id)}>Add to Cart</button>
+          <button className="back" onClick={()=>handleAddToCart(myProduct.id)}>Add to Cart</button>
         </div>
       </div>
+      <hr />
+      <Comment/>
     </div>
   );
+  }
+  
 };
 
 export default DetailProduct;
