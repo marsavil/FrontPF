@@ -20,7 +20,6 @@ export const FormComment = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (comment.text.length > 0) {
-      console.log(comment)
       dispatch(postComments(comment));
       alert("Success");
       setComment({
@@ -29,7 +28,8 @@ export const FormComment = () => {
         postedBy: user.id,
         product: product.id,
       });
-      history.push(`/product/${product.id}`)
+      setInterval("location.reload()",500)
+      
     } else {
       alert("Add a comment");
     }

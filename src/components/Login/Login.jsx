@@ -42,6 +42,7 @@ function Login() {
     };
     gapi.load("client:auth2", start);
   }, [clientID, dispatch]);
+ console.log("esto es gapi",gapi)
   const onSuccess = (response) => {
     console.log(response);
     sessionStorage.setItem("user", JSON.stringify(response.profileObj));

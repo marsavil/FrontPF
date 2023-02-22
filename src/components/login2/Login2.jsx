@@ -18,6 +18,7 @@ const Login2 = () => {
   async function login(event) {
     event.preventDefault();
     dispatch(login2(email, password))
+    history.push('/home')
   }
 
   return (

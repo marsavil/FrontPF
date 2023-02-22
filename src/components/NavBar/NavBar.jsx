@@ -15,13 +15,11 @@ export default function Navbar({}) {
   function handleInputModel(e) {
     e.preventDefault();
     setModel(e.target.value);
-    console.log(model);
   }
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(getProductQuery(model));
     setModel("");
-    console.log(getProductQuery(model));
   }
 
   return (
