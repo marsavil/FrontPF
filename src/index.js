@@ -10,10 +10,10 @@ import {BrowserRouter} from 'react-router-dom'
 import axios from 'axios';
 
 //Local
-axios.defaults.baseURL = `http://localhost:3001`
+//axios.defaults.baseURL = `http://localhost:3001`
 
 //Deploy
-//axios.defaults.baseURL = 'https://backpf-production-c9e5.up.railway.app/'
+axios.defaults.baseURL = 'https://backpf-production-c9e5.up.railway.app/'
 
 ReactDOM.render(
   <React.StrictMode>
