@@ -148,7 +148,7 @@ export const registerUser = (payload) => {
     }
   };
 };
-export const login2 = (email, password) => {
+export const loggingUser = (email, password) => {
   return async (dispatch) => {
     try {
         const json =await axios.get(`user/login/${email}&${password}`)

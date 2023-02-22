@@ -23,7 +23,7 @@ export const DetailProduct = () => {
     // dispatch(getComments(product.id))
     dispatch(getProductId(id));
   }, [dispatch, id]);
- console.log("este id viene de la variable product en linea 17", product.id)
+ 
   // const allComments = useSelector((state) => state.comments)
 
   

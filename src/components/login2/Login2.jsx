@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Login from "../Login/Login";
 import "./login.css"
 import { useDispatch } from "react-redux";
-import { login2 } from "../../Redux/actions";
+import { loggingUser } from "../../Redux/actions";
 
 const Login2 = () => {
   const dispatch = useDispatch()
@@ -17,7 +17,7 @@ const Login2 = () => {
 
   async function login(event) {
     event.preventDefault();
-    dispatch(login2(email, password))
+    dispatch(loggingUser(email, password))
     history.push('/home')
   }
 

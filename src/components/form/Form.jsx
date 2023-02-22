@@ -12,10 +12,10 @@ export default function Form() {
   const history = useHistory();
   const user = useSelector((state) => state.userLogged)
   //console.log( user)
-  if(user.status === "UNVERIFIED"){
-    alert("You have to verify your email before adding a product")
-    history.push("/home")
-  }
+  // if(user.status === "UNVERIFIED"){
+  //   alert("You have to verify your email before adding a product")
+  //   history.push("/home")
+  // }
   const [input, setInput] = useState({
     marca: "",
     model: "",
@@ -63,7 +63,6 @@ export default function Form() {
         })
       });
   };
-  console.log(input)
   function handleSubmit(e) {
     e.preventDefault();
     if (
