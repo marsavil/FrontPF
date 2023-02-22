@@ -18,6 +18,9 @@ const Login2 = () => {
   const login = async(event) => {
     event.preventDefault();
     await dispatch(loggingUser(email, password))
+    setTimeout(() => {
+      history.push('/home');
+    }, 3000)
     //history.push('/home')
   }
 

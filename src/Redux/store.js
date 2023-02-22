@@ -9,7 +9,7 @@ import thunk from "redux-thunk";
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['cart', "users" , "user", "userLogged", ], // Aquí especificamos el reducer "cart" que deseamos almacenar
+  whitelist: ['cart', "users" , "user", "userLogged" ], // Aquí especificamos el reducer "cart" que deseamos almacenar
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
