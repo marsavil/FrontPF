@@ -5,8 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { registerUser } from "../../Redux/actions";
 import { useHistory } from "react-router-dom";
 
-import "./Login.css"
-
+import "./Login.css";
 
 function Login() {
   const dispatch = useDispatch();
@@ -18,17 +17,17 @@ function Login() {
     JSON.parse(sessionStorage.getItem("user")) || {}
   );
   console.log(sessionStorage);
-
+  const init = (clientID) => {
+    gapi.load('auth2', function() {
+      gapi.auth2.init({clientId: clientID});
+        })
   useEffect(() => {
-    const init = onLoad = () => {
-      gapi.load('auth2', function() {
-       gapi.auth2.init({clientId: clientID});
-         })
-    // const start = () => {
-    //   gapi.auth2
-    //     .init({
-    //       clientId: clientID,
-    //     })
+    init(clientID)
+        // const start = () => {
+        //   gapi.auth2
+        //     .init({
+        //       clientId: clientID,
+        //     })
         .then(() => {
           const user = JSON.parse(sessionStorage.getItem("user"));
           if (user) {
@@ -43,15 +42,15 @@ function Login() {
             dispatch(registerUser(input));
           }
         });
-    };
+    });
     gapi.load("client:auth2", start);
   }, [clientID, dispatch]);
- console.log("esto es gapi",gapi)
+  console.log("esto es gapi", gapi);
   const onSuccess = (response) => {
     console.log(response);
     sessionStorage.setItem("user", JSON.stringify(response.profileObj));
     setUser(response.profileObj);
-    history.push("/home")
+    history.push("/home");
   };
   const onFailure = () => {
     console.log("Something went wrong");
@@ -66,7 +65,7 @@ function Login() {
         cookiePolicy={"single_host_policy"}
       />
       <div className={user ? "profile" : "hidden"}>
-        <img className="profileImg"src={user.imageUrl} alt="" width={"50px"} />
+        <img className="profileImg" src={user.imageUrl} alt="" width={"50px"} />
         <h3>{user.name}</h3>
       </div>
     </div>
