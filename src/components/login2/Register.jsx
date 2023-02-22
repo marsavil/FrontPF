@@ -1,9 +1,11 @@
 import React from "react";
-
+import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useState } from "react"; 
+
 
 const Register = () => {
+  const history = useHistory()
   const [fname, setFName] = useState("");
   const [lname, setLName] = useState("");
   console.log(fname)
@@ -16,12 +18,13 @@ const Register = () => {
     event.preventDefault();
     try {
       await axios.post("/user/signup", {
-        name: fname ,
+        name: fname+" "+lname ,
         isAdmin: false,
         email: email,
         password: password,
       });
       alert(" Registation Successfully");
+      history.push('/login')
     } catch (err) {
       alert(err);
     }
