@@ -9,11 +9,21 @@ import "./Login.css"
 
 
 function Login() {
+  window.gapi.load('auth2', function() {
+    window.gapi.auth2.init({
+      client_id: clientID,
+      // Otras opciones de configuración
+    });
+  });
   const dispatch = useDispatch();
   const history = useHistory();
   const clientID =
     "476059488838-mdd84pqo9vvfmrqabsvqqm0cp7usitn0.apps.googleusercontent.com";
-
+    window.gapi.load('auth2', function() {
+      window.gapi.auth2.init({
+        client_id: clientID,
+        // Otras opciones de configuración
+      });
   const [user, setUser] = useState(
     JSON.parse(sessionStorage.getItem("user")) || {}
   );
