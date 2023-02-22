@@ -1,0 +1,28 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: fit-content;
+    margin-left: 50%;
+    transform: translate(-50%);
+    padding: 4rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.inputs {
+    width: 100%;
+}
+
+.register {
+    margin: 0 !important;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+}
