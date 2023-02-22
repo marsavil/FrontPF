@@ -151,8 +151,9 @@ export const registerUser = (payload) => {
 export const loggingUser = (email, password) => {
   return async (dispatch) => {
     try {
-        const json =await axios.get(`user/login/${email}&${password}`)
+        const json =await axios.get(`/user/login/${email}&${password}`)
         let user = json.data
+        console.log("este es el usuario para almacenar en el estado", user)
         dispatch({
           type: GET_USER_LOGGED,
           payload: user
