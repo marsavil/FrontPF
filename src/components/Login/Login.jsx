@@ -21,11 +21,11 @@ function Login() {
 
   useEffect(() => {
     const start = () => {
-      gapi.auth2
-        .init({
-          clientId: clientID,
-        })
-        .then(() => {
+      gapi.load("client:auth2", function() {
+        gapi.auth2.init({
+          client_id: clientID
+        });
+      }).then(() => {
           const user = JSON.parse(sessionStorage.getItem("user"));
           if (user) {
             setUser(user);
