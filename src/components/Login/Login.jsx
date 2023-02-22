@@ -9,85 +9,40 @@ import "./Login.css"
 
 
 function Login() {
-  // window.gapi.load('auth2', function() {
-  //   window.gapi.auth2.init({
-  //     client_id: clientID,
-  //     // Otras opciones de configuración
-  //   });
-  // });
-  // const dispatch = useDispatch();
-  // const history = useHistory();
-  // const clientID =
-  //   "476059488838-mdd84pqo9vvfmrqabsvqqm0cp7usitn0.apps.googleusercontent.com";
-  //   window.gapi.load('auth2', function() {
-  //     window.gapi.auth2.init({
-  //       client_id: clientID,
-  //       // Otras opciones de configuración
-  //     })});
-  // const [user, setUser] = useState(
-  //   JSON.parse(sessionStorage.getItem("user")) || {}
-  // );
-  // console.log(sessionStorage);
-
-  // useEffect(() => {
-  //   const start = () => {
-  //     gapi.auth2
-  //       .init({
-  //         clientId: clientID,
-  //       })
-  //       .then(() => {
-  //         const user = JSON.parse(sessionStorage.getItem("user"));
-  //         if (user) {
-  //           setUser(user);
-  //           const input = {
-  //             name: user.name,
-  //             isAdmin: false,
-  //             email: user.email,
-  //             password: user.googleId,
-  //             image: user.imageUrl,
-  //           };
-  //           dispatch(registerUser(input));
-  //         }
-  //       });
-  //   };
-  //   gapi.load("client:auth2", start);
-  // }, [clientID, dispatch]);
-  
   const dispatch = useDispatch();
-const history = useHistory();
-const clientID =
-  "476059488838-mdd84pqo9vvfmrqabsvqqm0cp7usitn0.apps.googleusercontent.com";
+  const history = useHistory();
+  const clientID =
+    "476059488838-mdd84pqo9vvfmrqabsvqqm0cp7usitn0.apps.googleusercontent.com";
 
-useEffect(() => {
-  window.gapi.load("auth2").then(() => {
-    window.gapi.auth2
-      .init({
-        client_id: clientID,
-      })
-      .then((authInstance) => {
-        const user = authInstance.currentUser.get();
-        if (user) {
-          const userProfile = user.getBasicProfile();
-          const input = {
-            name: userProfile.getName(),
-            isAdmin: false,
-            email: userProfile.getEmail(),
-            password: user.getAuthResponse().id_token,
-            image: userProfile.getImageUrl(),
-          };
-          dispatch(registerUser(input));
-          setUser(userProfile);
-          sessionStorage.setItem("user", JSON.stringify(userProfile));
-        }
-      });
-  });
-}, [clientID, dispatch]);
+  const [user, setUser] = useState(
+    JSON.parse(sessionStorage.getItem("user")) || {}
+  );
+  console.log(sessionStorage);
 
-const [user, setUser] = useState(
-  JSON.parse(sessionStorage.getItem("user")) || {}
-);
-  
-  console.log("esto es gapi",gapi)
+  useEffect(() => {
+    const start = () => {
+      gapi.auth2
+        .init({
+          clientId: clientID,
+        })
+        .then(() => {
+          const user = JSON.parse(sessionStorage.getItem("user"));
+          if (user) {
+            setUser(user);
+            const input = {
+              name: user.name,
+              isAdmin: false,
+              email: user.email,
+              password: user.googleId,
+              image: user.imageUrl,
+            };
+            dispatch(registerUser(input));
+          }
+        });
+    };
+    gapi.load("client:auth2", start);
+  }, [clientID, dispatch]);
+ console.log("esto es gapi",gapi)
   const onSuccess = (response) => {
     console.log(response);
     sessionStorage.setItem("user", JSON.stringify(response.profileObj));
