@@ -5,8 +5,11 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Login from "../Login/Login";
 import "./login.css"
+import { useDispatch } from "react-redux";
+import { login2 } from "../../Redux/actions";
 
 const Login2 = () => {
+  const dispatch = useDispatch()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
@@ -14,31 +17,7 @@ const Login2 = () => {
 
   async function login(event) {
     event.preventDefault();
-    try {
-      await axios
-        .get("", {
-          email: email,
-          password: password,
-        })
-        .then(
-          (res) => {
-            console.log(res);
-            const data = res.data;
-
-            if (data.status === true) {
-              alert("Login Successfully");
-              history.push("/home");
-            } else {
-              alert("Login Failed");
-            }
-          },
-          (fail) => {
-            console.error(fail); // Error!
-          }
-        );
-    } catch (err) {
-      alert(err);
-    }
+    dispatch(login2(email, password))
   }
 
   return (

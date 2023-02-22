@@ -148,6 +148,20 @@ export const registerUser = (payload) => {
     }
   };
 };
+export const login2 = (email, password) => {
+  return async (dispatch) => {
+    try {
+        const json =await axios.get(`user/login/${email}&${password}`)
+        let user = json.data
+        dispatch({
+          type: GET_USER_LOGGED,
+          payload: user
+        })
+        }catch (err) {
+      alert(err);
+    }
+  }
+}
 
 export const getUserLogged = (payload) => {
   return async(dispatch) => {
