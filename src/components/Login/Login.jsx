@@ -23,7 +23,7 @@ function Login() {
       window.gapi.auth2.init({
         client_id: clientID,
         // Otras opciones de configuración
-      });
+      })});
   const [user, setUser] = useState(
     JSON.parse(sessionStorage.getItem("user")) || {}
   );
