@@ -20,11 +20,15 @@ function Login() {
   console.log(sessionStorage);
 
   useEffect(() => {
-    const start = () => {
-      gapi.auth2
-        .init({
-          clientId: clientID,
-        })
+    const init = onLoad = () => {
+      gapi.load('auth2', function() {
+       gapi.auth2.init({clientId: clientID});
+         })
+    // const start = () => {
+    //   gapi.auth2
+    //     .init({
+    //       clientId: clientID,
+    //     })
         .then(() => {
           const user = JSON.parse(sessionStorage.getItem("user"));
           if (user) {
