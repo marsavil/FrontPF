@@ -19,7 +19,7 @@ import { clearCarts } from "../Redux/actions";
       <h1>Tu pago se ha acreditado correctamente</h1>
       {setTimeout(() => {
         history.push("/home")
-      }, 5000)}
+      }, 3000)}
     </div>
     
   )
