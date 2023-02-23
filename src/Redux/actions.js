@@ -14,7 +14,7 @@ export const POST_PRODUCTS = "POST_PRODUCTS";
 export const ORDER_PRICE = "ORDER_PRICE";
 export const REGISTER_USER = "REGISTER_USER"
 export const LOW_STOCK = "LOW_STOCK"
-
+export const LOG_OUT_USER = "LOG_OUT_USER"
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_MARCA = "ORDER_MARCA";
 
@@ -178,6 +178,11 @@ export const getUserLogged = (payload) => {
   }
 }
 
+export const logoutUser = () => ({
+  type: LOG_OUT_USER,
+});
+
+
 export const getComments = (payload) => {
   console.log(payload)
   if(payload){
@@ -287,9 +292,11 @@ export function deleteAllCarts(id){
   }
 }
 
+
+
 export function clearCarts(){
-  return{
+  return {
     type: CLEAR_CART
-  }
+  };
 }
 

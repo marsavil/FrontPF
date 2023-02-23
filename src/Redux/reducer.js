@@ -19,6 +19,7 @@ import {
   GET_COMMENTS,
   POST_COMMENTS,
   LOW_STOCK,
+  LOG_OUT_USER,
 } from "./actions";
 
 const initialState = {
@@ -75,6 +76,13 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         userLogged: action.payload
       }
+
+      case LOG_OUT_USER:
+        return {
+          ...state,
+          userLogged: null,
+      };
+
 
     case POST_PRODUCTS:
       return {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductQuery } from "../../Redux/actions.js";
+import { getProductQuery, logoutUser } from "../../Redux/actions.js";
 import Cart from "../Cart/Cart.jsx";
 import "./navBar.css";
 import User from "./user.jsx";
@@ -21,6 +21,10 @@ export default function Navbar({}) {
     dispatch(getProductQuery(model));
     setModel("");
   }
+  const handleLogout = () => {
+    sessionStorage.removeItem("user");
+    dispatch(logoutUser());
+  };
 
   return (
     <section className="navbar navbar-expand-lg" id="navbar1">
@@ -73,7 +77,7 @@ export default function Navbar({}) {
             <button>Log in</button>
           </Link>
           :
-          <button className="btnClose">Log out</button>}
+          <div><button onClick={handleLogout}>Log Out</button></div>}
         </div>
       </div>
     </section>
