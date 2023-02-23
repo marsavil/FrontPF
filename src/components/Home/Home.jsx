@@ -10,12 +10,12 @@ import {  getUserLogged } from "../../Redux/actions";
 
 export const Home = () => {
 
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  // const dispatch = useDispatch();
+  // const user = useSelector((state) => state.user);
   
-  const email = user ? JSON.parse(user).email : null;
+  // const email = user ? JSON.parse(user).email : null;
   
-  dispatch(getUserLogged(email))
+  // dispatch(getUserLogged(email))
 
 
 

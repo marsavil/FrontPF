@@ -2,6 +2,7 @@ import React ,{useEffect} from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearCarts } from "../Redux/actions";
+import "./style.css"
 
 
   
@@ -16,10 +17,10 @@ import { clearCarts } from "../Redux/actions";
 
   return(
     <div>
-      <h1>Tu pago se ha acreditado correctamente</h1>
+      <h1 className="payMsg">Tu pago se ha acreditado correctamente</h1>
       {setTimeout(() => {
         history.push("/home")
-      }, 3000)}
+      }, 5000)}
     </div>
     
   )
