@@ -10,7 +10,7 @@ export const User = () => {
   return (
     <div className="user-container">
       <div>
-        {user  ? <img className="profileImg"src={image} alt="" height="40px" width="40px" /> : <img className="profileImg"src={invitado} alt="" height="40px" width="40px" />}
+        {user  ? <img className="profileImg"src={image} alt="" height="20px" width="25px" /> : <img className="profileImg"src={invitado} alt="" height="20px" width="25px" />}
       </div>
       <div className="name-container">
       {user ? <h4 className="name">{name}</h4> : <h4 className="name">Invitado</h4> }

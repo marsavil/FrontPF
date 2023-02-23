@@ -12,24 +12,40 @@ export default function Navbar({}) {
   const [model, setModel] = useState("");
   const user =  useSelector((state) => state.userLogged);
   const [active, setActive] = useState(false);
+
   function handleInputModel(e) {
     e.preventDefault();
     setModel(e.target.value);
   }
+  
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(getProductQuery(model));
     setModel("");
   }
+
   const handleLogout = () => {
-    sessionStorage.removeItem("user");
-    dispatch(logoutUser());
-  };
+        sessionStorage.removeItem("user");
+        dispatch(logoutUser());
+      };
+
+  const changeTheme = () => {
+    if(document.querySelector("body").getAttribute("data-bs-theme") === "light") {
+      document.querySelector("body").setAttribute("data-bs-theme", "dark");
+      document.querySelector("#dl-icon").setAttribute("class", "bi bi-moon-fill");
+      document.querySelector("#body").setAttribute("class", "bodyDark");
+    } else {
+      document.querySelector("body").setAttribute("data-bs-theme", "light");
+      document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
+      document.querySelector("#body").setAttribute("class", "");
+    }
+  
+  }
 
   return (
     <section className="navbar navbar-expand-lg" id="navbar1">
       <div className="logo-Container">
-        <a  href="/"> </a>
+        <a  href="/">Â </a>
       </div>
       <div className="searchbar-container">
         <form className="d-lg-flex mb-2 mb-lg-0 mx-auto w-100" id="mobile">
@@ -78,6 +94,12 @@ export default function Navbar({}) {
           </Link>
           :
           <div><button onClick={handleLogout}>Log Out</button></div>}
+        </div>
+
+        <div>
+          <button onClick={changeTheme} className="btn rounded-fill">
+            <i id="dl-icon" className="bi bi-moon-fill"></i>
+          </button>
         </div>
       </div>
     </section>

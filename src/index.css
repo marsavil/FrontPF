@@ -7,7 +7,7 @@ code {
     monospace;
 }
 
-*:root {
+:root {
   --eerie-black: hsl(0, 0%, 13%);
   --onyx: hsl(0, 0%, 27%);
   --davys-gray: hsl(0, 0%, 33%);
@@ -23,17 +23,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: "Inter", sans-serif !important;
   background-color: #ebebeb !important;
+  transition: 0.3s;
 }
 
 a {
   text-decoration: none !important;
 }
 
-/* media query que maneja el modo oscuro */
+.bodyDark {
+  background: rgba(41, 41, 41, 1) !important;
+}
+
+
 @media (prefers-color-scheme: dark) {
-  body {
-    background: rgba(41, 41, 41, 1) !important;
-  }
 
   .card, .Detail {
     background: rgba(18, 18, 18, 1) !important;
@@ -62,4 +64,4 @@ a {
   .button-container {
     color: white !important;
   }
-}
+} 
