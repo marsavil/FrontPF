@@ -10,14 +10,7 @@ export const Comment = () => {
   //llenar este hook con una consulta a la base
   const [postedComments, setPostedComments] = useState([
     {
-      id: 1,
-      name: "Pedro",
-      comment: "Soy un comentario",
-    },
-    {
-      id: 2,
-      name: "Ellie",
-      comment: "Soy otro comentario pero mas laaaaaaargo",
+      text: "",
     },
   ]);
 

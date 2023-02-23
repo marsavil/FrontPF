@@ -59,6 +59,7 @@ export default function AllCards() {
                   image={e.image}
                   price={e.price}
                   model={e.model}
+                  stock={e.stock}
                 />
               ))
             ) : (

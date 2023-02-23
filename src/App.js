@@ -13,22 +13,6 @@ import Register from "./components/login2/Register";
 import Admin from "./components/Admin/Admin";
 function App() {
 
-  
-
-  const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   dispatch(getLowStockProducts(1, 10));
-  //   dispatch(getAllProducts());
-  //   dispatch(getComments());
-  //   dispatch(getUsers());
-  // }, [dispatch]);
-  
-  const products = useSelector((state) => state.product);
-  const comments = useSelector((state) => state.comments);
-  const users = useSelector((state) => state.users);
-  const lowStock = useSelector((state) => state.lowStock);
-
 
   return (
     <div className="App">

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useMemo } from "react";
 import { Column, useTable } from "react-table";
-import { useDispatch, useSelector } from "react-redux";
-import { getproductsProducts } from "../../Redux/actions";
+
 
 export default function Table({ products }) {
 
@@ -25,10 +24,10 @@ export default function Table({ products }) {
     },
   ];
 
-  const data = useMemo(() => products, [products]);
+  const data = products?.map (e => e.data)
   const columns = useMemo(() => cols, [cols]);
 
-  const tableInstance = useTable({ columns, data: products });
+  const tableInstance = useTable({ columns, data});
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;

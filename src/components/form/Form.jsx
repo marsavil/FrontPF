@@ -63,6 +63,7 @@ export default function Form() {
         })
       });
   };
+  console.log(input)
   function handleSubmit(e) {
     e.preventDefault();
     if (

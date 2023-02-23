@@ -23,7 +23,7 @@ export const DetailProduct = () => {
     // dispatch(getComments(product.id))
     dispatch(getProductId(id));
   }, [dispatch, id]);
- 
+ //console.log("este id viene de la variable product en linea 17", product.id)
   // const allComments = useSelector((state) => state.comments)
 
   
@@ -72,6 +72,10 @@ export const DetailProduct = () => {
           <h3 className="texts">
             {" "}
             Ram: <br /> {myProduct.ram}
+          </h3>
+          <h3 className="texts">
+            {" "}
+            Stock: <br /> {myProduct.stock}
           </h3>
           <h3 className="texts"> </h3>
           <button className="back" onClick={()=>handleAddToCart(myProduct.id)}>Add to Cart</button>

@@ -1,12 +1,12 @@
 import React from "react";
-import axios from "axios";
+//import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Login from "../Login/Login";
 import "./login.css"
 import { useDispatch } from "react-redux";
-import { loggingUser } from "../../Redux/actions";
+import { login2 } from "../../Redux/actions";
 
 const Login2 = () => {
   const dispatch = useDispatch()
@@ -15,13 +15,10 @@ const Login2 = () => {
   const history = useHistory();
   
 
-  const login = async(event) => {
+  async function login(event) {
     event.preventDefault();
-    await dispatch(loggingUser(email, password))
-    setTimeout(() => {
-      history.push('/home');
-    }, 3000)
-    //history.push('/home')
+    dispatch(login2(email, password))
+    history.push('/home')
   }
 
   return (
