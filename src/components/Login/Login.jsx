@@ -12,7 +12,8 @@ function Login() {
   const dispatch = useDispatch();
   const history = useHistory();
   const clientID =
-    "476059488838-mdd84pqo9vvfmrqabsvqqm0cp7usitn0.apps.googleusercontent.com";
+  "61647577513-2gn4787ibh12al7oj6kpq2g5hgv6uhok.apps.googleusercontent.com"
+    //"476059488838-mdd84pqo9vvfmrqabsvqqm0cp7usitn0.apps.googleusercontent.com";
 
   const [user, setUser] = useState(
     JSON.parse(sessionStorage.getItem("user")) || {}
